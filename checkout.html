@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout – ShopEasy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="nav-inner">
+    <a href="index.html" class="logo">ShopEasy</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="cart.html">Cart</a>
+      <a href="checkout.html" class="active">Checkout</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search products…">
+      <button id="search-btn" onclick="window.location.href='index.html?q='+document.getElementById('search-input').value">🔍</button>
+    </div>
+    <a href="cart.html" class="cart-icon">
+      🛒
+      <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+    </a>
+  </nav>
+</header>
+
+<div class="checkout-layout">
+
+  <!-- ── Left: Shipping + Payment form ── -->
+  <form id="checkout-form" novalidate>
+
+    <!-- Shipping Info -->
+    <div class="checkout-form">
+      <h2>Shipping Information</h2>
+
+      <div class="form-group">
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" placeholder="Jane Doe" autocomplete="name">
+        <span class="error-msg" id="err-name">Please enter your full name (min 2 characters).</span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="jane@example.com" autocomplete="email">
+          <span class="error-msg" id="err-email">Please enter a valid email address.</span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="10-digit number" autocomplete="tel">
+          <span class="error-msg" id="err-phone">Please enter a valid 10-digit phone number.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Street Address</label>
+        <input type="text" id="address" placeholder="123 Main St" autocomplete="street-address">
+        <span class="error-msg" id="err-address">Please enter your address.</span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" placeholder="New York" autocomplete="address-level2">
+          <span class="error-msg" id="err-city">Please enter your city.</span>
+        </div>
+        <div class="form-group">
+          <label for="zip">ZIP Code</label>
+          <input type="text" id="zip" placeholder="12345" autocomplete="postal-code">
+          <span class="error-msg" id="err-zip">Please enter a valid 5-digit ZIP code.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select id="country" autocomplete="country">
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="GB">United Kingdom</option>
+          <option value="AU">Australia</option>
+          <option value="IN">India</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Payment Info -->
+    <div class="checkout-form" style="margin-top:1.5rem">
+      <h2>Payment Details</h2>
+
+      <div class="form-group">
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="cc-number">
+        <span class="error-msg" id="err-card">Please enter a valid 16-digit card number.</span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="card-expiry">Expiry (MM/YY)</label>
+          <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" autocomplete="cc-exp">
+          <span class="error-msg" id="err-expiry">Please enter expiry as MM/YY.</span>
+        </div>
+        <div class="form-group">
+          <label for="card-cvv">CVV</label>
+          <input type="text" id="card-cvv" placeholder="123" maxlength="4" autocomplete="cc-csc">
+          <span class="error-msg" id="err-cvv">Please enter a valid CVV (3–4 digits).</span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary" style="width:100%;margin-top:0.5rem">
+        Place Order →
+      </button>
+    </div>
+
+  </form>
+
+  <!-- ── Right: Order summary ── -->
+  <div class="order-summary-box">
+    <h3>Order Summary</h3>
+    <div id="order-items-list"></div>
+    <div class="summary-row" style="margin-top:1rem">
+      <span>Subtotal</span><span id="order-subtotal">$0.00</span>
+    </div>
+    <div class="summary-row">
+      <span>Shipping</span><span id="order-shipping">$5.99</span>
+    </div>
+    <div class="summary-row">
+      <span>Tax (8%)</span><span id="order-tax">$0.00</span>
+    </div>
+    <div class="summary-row total">
+      <span>Total</span><span id="order-total">$0.00</span>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast"></div>
+
+<footer>
+  <p>&copy; 2024 ShopEasy. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

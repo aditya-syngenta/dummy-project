@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopEasy – Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <nav class="nav-inner">
+    <a href="index.html" class="logo">ShopEasy</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="cart.html">Cart</a>
+      <a href="checkout.html">Checkout</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search products…">
+      <button id="search-btn">🔍</button>
+    </div>
+    <a href="cart.html" class="cart-icon">
+      🛒
+      <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+    </a>
+  </nav>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <h1>Shop the <span>Best Deals</span> Online</h1>
+  <p>Thousands of products. Unbeatable prices. Free shipping on orders over $50.</p>
+  <a href="#products" class="btn-primary">Browse Products</a>
+</section>
+
+<!-- ===== Products ===== -->
+<main class="section" id="products">
+  <h2 class="section-title">Our Products</h2>
+
+  <!-- Category filter chips -->
+  <div class="categories">
+    <button class="category-chip active" data-category="All">All</button>
+    <button class="category-chip" data-category="Electronics">Electronics</button>
+    <button class="category-chip" data-category="Footwear">Footwear</button>
+    <button class="category-chip" data-category="Clothing">Clothing</button>
+    <button class="category-chip" data-category="Accessories">Accessories</button>
+    <button class="category-chip" data-category="Home & Kitchen">Home &amp; Kitchen</button>
+    <button class="category-chip" data-category="Sports">Sports</button>
+  </div>
+
+  <!-- Product grid (populated by JS) -->
+  <div class="product-grid" id="product-grid"></div>
+</main>
+
+<!-- ===== Toast ===== -->
+<div id="toast"></div>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <p>&copy; 2024 ShopEasy. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
